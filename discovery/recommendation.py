@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from owlready2 import *
 
 
@@ -21,12 +22,13 @@ if __name__ == '__main__':
     jazz = onto.Genre("Jazz")
     metal = onto.Genre("Metal")
 
-
+    # Relate
     les_paul.has_genre = [rock]
+    les_paul.has_genre.append(metal)
     les_paul.has_level = [amateur]
     ibanez.has_genre = [metal]
     semi.has_genre = [jazz]
 
     new_user.likes = rock
-    sync_reasoner()
+    # sync_reasoner()
     print(rock.has_guitar, les_paul.has_genre, les_paul.has_level)

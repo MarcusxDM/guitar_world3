@@ -13,10 +13,10 @@
 <body style="margin: 10%">
     {% load staticfiles %}
     <img src="{% static "guitar_discovery/images/guitar_logo.png" %}">
-    <form>
+    <form action="{% search_form %}" method="post">
       <div class="form-group">
         <label for="exampleFormControlSelect1">Qual seu tipo de Música preferido?</label>
-        <select class="form-control" id="exampleFormControlSelect1">
+        <select name="genre" class="form-control" id="exampleFormControlSelect1">
           <option>Rock</option>
           <option>Jazz</option>
           <option>Metal</option>
@@ -25,7 +25,7 @@
       </div>
       <div class="form-group">
         <label for="exampleFormControlSelect2">Qual seu nível?</label>
-        <select multiple class="form-control" id="exampleFormControlSelect2">
+        <select multiple class="form-control" name="level" id="exampleFormControlSelect2">
           <option>Iniciante</option>
             <option>Amador</option>
           <option>Profissional</option>
@@ -34,7 +34,7 @@
 
       <div class="form-group">
         <label for="formControlRange">Até quanto pretende investir?</label>
-        <input type="range" min="150" max="2000" value="300" class="form-control-range" id="formControlRange">
+        <input type="range" min="150" max="2000"  name="price" class="form-control-range" id="formControlRange">
           <p>Value: <span id="demo"></span></p>
       </div>
 
@@ -42,7 +42,7 @@
           <div class="input-group-prepend">
             <div class="input-group-text">
                 <label for="formControlRange">Vizinhos chatos</label>
-              <input type="checkbox" aria-label="Checkbox for following text input">
+              <input type="checkbox" name="loud" aria-label="Checkbox for following text input">
             </div>
           </div>
         </div>
