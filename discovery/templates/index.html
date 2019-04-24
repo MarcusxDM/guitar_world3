@@ -13,22 +13,23 @@
 <body style="margin: 10%">
     {% load staticfiles %}
     <img src="{% static "guitar_discovery/images/guitar_logo.png" %}">
-    <form action="{% search_form %}" method="post">
+    <form action={% url 'search_form' %}" method="post">
+        {% csrf_token %}
       <div class="form-group">
         <label for="exampleFormControlSelect1">Qual seu tipo de Música preferido?</label>
         <select name="genre" class="form-control" id="exampleFormControlSelect1">
-          <option>Rock</option>
-          <option>Jazz</option>
-          <option>Metal</option>
+          <option value="Rock">Rock</option>
+          <option value="Jazz">Jazz</option>
+          <option value="Metal">Metal</option>
             <option>Todos</option>
         </select>
       </div>
       <div class="form-group">
         <label for="exampleFormControlSelect2">Qual seu nível?</label>
         <select multiple class="form-control" name="level" id="exampleFormControlSelect2">
-          <option>Iniciante</option>
-            <option>Amador</option>
-          <option>Profissional</option>
+          <option value="Iniciante">Iniciante</option>
+            <option value="Amador">Amador</option>
+          <option value="Profissional">Profissional</option>
         </select>
       </div>
 
@@ -42,7 +43,7 @@
           <div class="input-group-prepend">
             <div class="input-group-text">
                 <label for="formControlRange">Vizinhos chatos</label>
-              <input type="checkbox" name="loud" aria-label="Checkbox for following text input">
+              <input type="checkbox" value="1" name="loud" aria-label="Checkbox for following text input">
             </div>
           </div>
         </div>
