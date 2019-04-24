@@ -21,6 +21,6 @@ from discovery import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^guitar_discovery/', views.search_index),
-    url(r'^guitar_discovery/search_form/$', views.search_form, name='search_form'),
+    url(r'^$', views.search_index),
+    url(r'^results/$', views.results, name='results'),
 ]

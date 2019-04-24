@@ -4,16 +4,17 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <title>Guitar World</title>
 
-    <title>Guitar World</title>
 </head>
-<body style="margin: 10%">
-    {% load staticfiles %}
-    <img src="{% static "guitar_discovery/images/guitar_logo.png" %}">
-    <form action={% url 'search_form' %}" method="post">
+<body>
+    <center>{% load static %}
+    <img style="width: 20%; margin-top: 5%; margin-bottom: -5%" src="{% static "discovery/guitar_logo.png" %}">
+    </center>
+    <div style="margin: 10%;">
+    <form action="{% url 'results' %}" method="POST">
         {% csrf_token %}
       <div class="form-group">
         <label for="exampleFormControlSelect1">Qual seu tipo de Música preferido?</label>
@@ -21,12 +22,11 @@
           <option value="Rock">Rock</option>
           <option value="Jazz">Jazz</option>
           <option value="Metal">Metal</option>
-            <option>Todos</option>
         </select>
       </div>
       <div class="form-group">
         <label for="exampleFormControlSelect2">Qual seu nível?</label>
-        <select multiple class="form-control" name="level" id="exampleFormControlSelect2">
+        <select class="form-control" name="level" id="exampleFormControlSelect1">
           <option value="Iniciante">Iniciante</option>
             <option value="Amador">Amador</option>
           <option value="Profissional">Profissional</option>
@@ -43,12 +43,34 @@
           <div class="input-group-prepend">
             <div class="input-group-text">
                 <label for="formControlRange">Vizinhos chatos</label>
-              <input type="checkbox" value="1" name="loud" aria-label="Checkbox for following text input">
+                <select name="loud" class="form-control" id="exampleFormControlSelect1">
+                  <option value="1">Sim</option>
+                  <option value="0">Não</option>
+                </select>
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Encontrar minha guitarra perfeita!</button>
+
+        <div class="form-group">
+        <label for="exampleFormControlSelect1">Cor do acabamento</label>
+        <select name="color" class="form-control" id="exampleFormControlSelect1">
+          <option value="Preto">Preto</option>
+          <option value="Vermelho">Vermelho</option>
+          <option value="Sunburst">Sunburst</option>
+        </select>
+      </div>
+
+        <div class="form-group">
+        <label for="exampleFormControlSelect1">Encordamento</label>
+        <select name="chords" class="form-control" id="exampleFormControlSelect1">
+          <option value="9">0.9</option>
+          <option value="10">0.10</option>
+          <option value="11">0.11</option>
+        </select>
+      </div>
+        <button type="submit" class="btn btn-primary">Encontrar minha guitarra perfeita</button>
     </form>
+    </div>
     <script>
         var slider = document.getElementById("formControlRange");
         var output = document.getElementById("demo");
