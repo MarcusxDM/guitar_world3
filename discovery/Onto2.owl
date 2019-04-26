@@ -45,20 +45,22 @@
     
 
 
+    <!-- http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#has_guitarLevel -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#has_guitarLevel">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#has_levelGuitar"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Level"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Guitar"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#has_level -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#has_level">
-        <owl:inverseOf rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#has_levelGuitar"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
-        <rdfs:domain>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Guitar"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#User"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:domain>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#User"/>
         <rdfs:range rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Level"/>
     </owl:ObjectProperty>
     
@@ -69,15 +71,8 @@
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#has_levelGuitar">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
-        <rdfs:domain rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Level"/>
-        <rdfs:range>
-            <owl:Class>
-                <owl:unionOf rdf:parseType="Collection">
-                    <rdf:Description rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Guitar"/>
-                    <rdf:Description rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#User"/>
-                </owl:unionOf>
-            </owl:Class>
-        </rdfs:range>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Guitar"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Level"/>
     </owl:ObjectProperty>
     
 
@@ -111,7 +106,7 @@
         <rdfs:range rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Guitar"/>
         <owl:propertyChainAxiom rdf:parseType="Collection">
             <rdf:Description rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#has_level"/>
-            <rdf:Description rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#has_levelGuitar"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#has_guitarLevel"/>
         </owl:propertyChainAxiom>
     </owl:ObjectProperty>
     
@@ -128,12 +123,42 @@
     
 
 
+    <!-- http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#chords -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#chords">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Guitar"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#color -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#color">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Guitar"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#level -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#level">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Guitar"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#loud -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#loud">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Guitar"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
     </owl:DatatypeProperty>
     
 
@@ -160,8 +185,19 @@
     <!-- http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#price -->
 
     <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#price">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Guitar"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#similarity -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#similarity">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Guitar"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
     </owl:DatatypeProperty>
     
 
@@ -306,7 +342,7 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#lespaul">
         <rdf:type rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#Guitar"/>
-        <guitar_world_ontology:has_level rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#amateur"/>
+        <guitar_world_ontology:has_levelGuitar rdf:resource="http://www.semanticweb.org/vinicius-pc/ontologies/2019/3/guitar_world_ontology#amateur"/>
     </owl:NamedIndividual>
     
 

@@ -12,9 +12,33 @@
 </head>
 <body style="margin: 10%">
     {% load staticfiles %}
-    <img src="{% static "discovery/images/guitar_logo.png" %}">
-
-    <div>{{ genre }}</div>
+    <h1>GUITARRAS DISPONIVEIS:<br><br></h1>
+    {% if recommended_guitar_list %}
+        {% for guitar in recommended_guitar_list %}
+        <div class="card" style="width: 18rem;">
+          <img src="{% static "discovery/guitar.jpg" %}" class="card-img-top" alt="Guitar Image">
+          <div class="card-body">
+            <p class="card-text">{{ guitar.name }}<br>
+                Gêneros: {% for genre in guitar.has_genre %}
+                            {{ genre.name }}
+                         {% endfor %}
+                <br>Level: {% for level in guitar.has_levelGuitar %}
+                            {{ level.name }}
+                         {% endfor %}
+                <br>{{ guitar.color.0 }}<br>Cordas: {{ guitar.chords.0 }}<br>
+                {% if guitar.loud.0 %}
+                Volume Alto
+                {% else %}
+                Volume Baixo
+                {% endif %}<br>R$ {{ guitar.price.0 }}<br>Pontos de similaridade: {{ guitar.similarity.0 }}<br></p>
+              <a href="#" class="btn btn-primary">COMPRAR</a>
+          </div>
+        </div>
+            <br>
+        {% endfor %}
+    {% else %}
+    <h3>Não foram encontradas guitarras que atendem suas necessidades.<br>Tente novamento com filtros diferentes<br><br></h3>
+    {% endif %}
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -19,6 +19,7 @@ if __name__ == '__main__':
 
     # Genre
     rock = onto.Genre("Rock")
+    rock2 = onto.Genre("Rock")
     jazz = onto.Genre("Jazz")
     metal = onto.Genre("Metal")
 
@@ -29,6 +30,13 @@ if __name__ == '__main__':
     ibanez.has_genre = [metal]
     semi.has_genre = [jazz]
 
-    new_user.likes = rock
+    ibanez.color = ['Amarelo']
+    les_paul.color = ['Amarelo']
+    ibanez.loud = [True]
+    les_paul.loud = [True]
+    new_user.likes = [rock]
     # sync_reasoner()
-    print(rock.has_guitar, les_paul.has_genre, les_paul.has_level)
+    print(rock == rock2)
+    print(ibanez.color == les_paul.color)
+    print(ibanez.loud == les_paul.loud)
+    print(new_user.recommendGuitar, rock.has_guitar, les_paul.has_genre, les_paul.has_level)
